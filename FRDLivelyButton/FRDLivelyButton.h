@@ -15,12 +15,16 @@ typedef enum {
     kFRDLivelyButtonStylePlus,
     kFRDLivelyButtonStyleCirclePlus,
     kFRDLivelyButtonStyleCircleClose,
+    kFRDLivelyButtonStyleCircleUp,
+    kFRDLivelyButtonStyleCircleDown,
     kFRDLivelyButtonStyleCaretUp,
     kFRDLivelyButtonStyleCaretDown,
     kFRDLivelyButtonStyleCaretLeft,
     kFRDLivelyButtonStyleCaretRight,
     kFRDLivelyButtonStyleArrowLeft,
-    kFRDLivelyButtonStyleArrowRight
+    kFRDLivelyButtonStyleArrowRight,
+    kFRDLivelyButtonStyleArrowUp,
+    kFRDLivelyButtonStyleArrowDown
 } kFRDLivelyButtonStyle;
 
 @interface FRDLivelyButton : UIButton
@@ -28,6 +32,8 @@ typedef enum {
 -(kFRDLivelyButtonStyle) buttonStyle;
 
 -(void) setStyle:(kFRDLivelyButtonStyle)style animated:(BOOL)animated;
+-(void) setStyle:(kFRDLivelyButtonStyle)style controlled:(BOOL)controlled;
+@property CFTimeInterval timeOffset;
 
 @property (nonatomic, strong) NSDictionary *options;
 +(NSDictionary *) defaultOptions;
